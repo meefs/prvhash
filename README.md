@@ -1,4 +1,4 @@
-# PRVHASH - Pseudo-Random-Value Hash (in C/C++) #
+# PRVHASH - Pseudo-Random-Value Hash (in C/C++)
 
 ## Introduction
 
@@ -775,20 +775,20 @@ whole.
 ### Birthday Paradox
 
 On the Birthday Paradox vs hash collision estimates: while the Birthday
-Paradox is a good "down-to-earth" model for collision estimation, it may be
-an "convoluted approach". When hash values are calculated successively, it is
-expected that each new hash value does not break "uniform distribution" of the
-set of previously produced hash values. This makes the problem of hash
+Paradox is an adequate "down-to-earth" model for collision estimation, it may
+be a convoluted approach. When hash values are calculated successively, it
+is expected that each new hash value does not break "uniform distribution" of
+the set of previously produced hash values. This makes the problem of hash
 collision estimation closer to value collision estimation of PRNG output.
 
 An open question remains: whether one should talk about "uniform distribution
 of values" or a "time- and rhythm- dependent collision minimization problem"
 when analyzing PRNG's uniformness. Incidentally, a set of rhythmic (repeating)
-processes with coprime periods produces a spectrum with the fewest resonant
-modes, resulting in a flatter, more uniform spectrum. Rhythm-dependent
-collision minimization also touches the ability of a single random number
-generator to create random sequences in many dimensions (known as
-k-equidistribution) just by selecting any sequence of its outputs.
+processes with coprime periods produces a flatter, more uniform spectrum, with
+the fewest resonant modes. Rhythm-dependent collision minimization also
+touches the ability of a single random number generator to create random
+sequences, uncorrelated in many dimensions (known as k-equidistribution) just
+by selecting any sequence of its outputs.
 
 ### Theory
 
