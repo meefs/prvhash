@@ -926,7 +926,7 @@ shoulders outline (4100-2700), and two hand palms risen up (5400-4300).
 
 Discrete Fourier (FFT-512) analysis of obtained signals produces the following
 power spectrums (with DC component removed). The analysis strengthens the
-notion the signal is non-chaotic and is "intelligent" (two strong peaks above
+notion the signal is non-random and is "intelligent" (two strong peaks above
 average, in each signal, with both signals producing similar structures, but
 with shifted resonant frequencies). Note that resonances in the middle of the
 spectrum are similar to resonances one gets when recording an acoustical snare
@@ -934,12 +934,12 @@ drum.
 
 <img src="img/proof_math_is_engineered_fft.png" width="600">
 
-### PRNG (Chaotic) Mode ###
+### PRNG (Random) Mode ###
 
 Just by changing the PH_HASH_COUNT to 9 (up to 13, inclusive) the same
 `proof_math_is_engineered.c` program produces a pseudo-random number sequence,
 confirmed with `PractRand` 1KB to 4KB block, 8-bit folding. Note that the same
-code producing both chaotic and non-chaotic number sequences is "highly
+code producing both random and non-random number sequences is "highly
 unlikely" to exist in practical PRNGs. It is important to note that
 `PH_HASH_COUNT=14` and `PH_HASH_COUNT=17` (which is beyond 15 and 16 signals
 mentioned originally) also pass as random, with 16-bit folding in `PractRand`.
@@ -1039,8 +1039,9 @@ which represents a continuous generation while displaying a sum of the recent
 255 passes, at every moment.
 
 Note that while individual frame passes that produce "triangles" look seemingly
-chaotic, the sum of the frames produces a non-chaotic image, implying existence
-of a higher-order structure.
+chaotic, the sum of the frames produces a structured image, implying existence
+of a higher-order structure, whether chaotic (in Chaos theory terms) or not.
+At the same time, Chaos theory forbids linear systems to be chaotic.
 
 If this imagery looks intelligent, in some way formulated, where's the
 formula? An inception of these results can be understood from this short essay:
@@ -1059,17 +1060,26 @@ function works in affine/linear F_2 domain, the same construct can be
 recreated physically thus offering an idea that the evolution of intelligence
 in organisms may have its roots in mathematics. Image in the middle depicts
 result after the first pass over frame; you may note "snake" elements and
-computer font-alike outlines there. Image on the right was obtained using
-PH_SEED_COUNT=64, note the appearance of a lot of glyph-like elements.
+computer font-alike outlines there.
+
+Image on the right was obtained using PH_SEED_COUNT=64, note the appearance
+of a lot of glyph-like elements. An opinion of the visual Google AI:
+"The image you provided, with its intersecting lines, repeating shapes (like
+zigzags and squares), and overlapping textures, suggests **a deeper,
+rule-based system at play**. The patterns, while complex and dense, do not
+appear to be purely disorganized. Instead, they seem to follow a logic that,
+while intricate, creates a sense of controlled disarray rather than pure,
+unpredictable chance. This is a hallmark of a chaotic system rather than a
+random one."
 
 <img src="img/prvhash1-reptile.jpg" width="240"><img src="img/prvhash1-reptile1.png" width="240"><img src="img/prvhash1-reptile64.png" width="240">
 
 ### Architectural Ruler (Gradilac Ruler) ###
 
-Whatever the true source of imagery is, one instance of produced "fine art"
-imagery seems to be useful, if applied as some architectural measurement
-ruler/tool since it can be used to quickly measure architectural features
-as whole-number ratios:
+Whatever the true source of imagery is, one instance of the produced
+"fine art" imagery seems to be useful, if applied as some architectural
+measurement ruler/tool since it can be used to quickly measure architectural
+features as whole-number ratios:
 
 <img src="img/arch-ruler.jpg" width="686">
 
