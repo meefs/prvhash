@@ -704,73 +704,75 @@ platforms can be evaluated at the
 
 ## Other Ideas
 
-PRVHASH, being scalable, potentially allows one to apply "infinite" state
+PRVHASH, being scalable, potentially allows for the use of an "infinite" state
 variable size in its system, at least in theoretical mathematical analysis.
-This reasoning suggests that PRVHASH's capacity for generating an infinite
-bit-sequence is analogous to that of PI. This also opens up a notion of
-"infinitesimal spacing" between isolated frequencies (arising from Fourier
-analysis of "infinite" bit-sequence). Note that PRVHASH does not require any
-"magic numbers" to function, it is completely algorithmic. An alternative
-explanation: In the discrete Fourier transform (DFT) domain, such
-understanding is possible: although usually the length of the transformation
-window is limited to small values (e.g., 2048 samples), theoretically, this
-length can be extended to infinity thus producing a spectrum of an infinite
-number of individual frequency bins. Moreover, individual components of such
-an "infinite" transformation also affect the resulting spectrum, but on an
-infinitely-precise frequency scale. Mathematics forbids manipulating
-infinities as concrete numbers, but as outlined with the DFT, in the field of
-discrete series of numbers, infinities can be "accessed", if the spectrum is
-"mapped" to an infinite scale.
+This implies its capacity to generate an infinite bit-sequence, analogous to
+that of the mathematical constant Pi. Importantly, the system is entirely
+self-reliant and requires no magic numbers.
 
-This echoes PRVHASH's design: although its current implementation uses a
-maximum of 128-bit state variables, the algorithm is theoretically scalable to
-an infinite size and should remain functional (as practically tested with
-state variables up to 524288 bits). Thus, PRVHASH recreates an analog of the
-number PI, and it should be possible to prove that existence of an infinite
-sequence of bits like PI is completely realistic; a person can create such
-sequence, too (in theory).
+This also introduces the notion of an "infinitesimal spacing" between isolated
+frequencies, which arises from the Fourier analysis of an "infinite"
+bit-sequence. This concept can be understood in the discrete Fourier transform
+(DFT) domain: although the transformation window length is usually limited to
+small values (e.g., 2048 samples), it can theoretically be extended to
+infinity. This would produce a spectrum with an infinite number of individual
+frequency bins.
+
+Moreover, individual samples of such an "infinite" transformation affect the
+entire resulting spectrum, but on an infinitely precise frequency scale.
+Mathematics forbids manipulating infinities as concrete numbers; however,
+as outlined with the DFT, infinities can be "accessed" in the field of
+discrete number series by "mapping" the spectrum to an infinite scale.
+
+This reflects the design of PRVHASH: while its current implementation uses
+128-bit state variables, the algorithm is theoretically scalable to an
+infinite size and has remained functional in tests with state variables of up
+to 524,288 bits. In this way, PRVHASH generates an analog to the number Pi.
+It should therefore be possible to prove that the existence of an infinite bit
+sequence like Pi is entirely realistic - a feat that, in theory, a person
+could also accomplish.
 
 ### Did Universe Self-Start?
 
-Mathematics offers an interesting perspective. Take in your mind a moment
-before the "Big Bang". Did mathematical rules exist at that moment? Of course,
-they did, or otherwise there would be no equation-definable "Big Bang".
-The span of existence of mathematical rules cannot be estimated, so one might
-assume they are eternal. On top of that, PRVHASH practically proves that
-entropy can self-start from zero-, or "raw" state, or "nothing", if
-mathematical rules exist prior to that.
+Mathematics offers an interesting perspective. Consider a moment before the
+"Big Bang." Did mathematical rules exist at that moment? Of course, they did;
+otherwise, there would be no equation-definable "Big Bang." The span of
+existence of mathematical rules cannot be estimated, so one might assume they
+are eternal. On top of that, PRVHASH practically proves that entropy can
+self-start from a zero, or "raw" state, or "nothing," if mathematical rules
+existed prior to that.
 
 ### Combinatorics in PRNG
 
-As the author of PRVHASH, I would like to point out some long-standing
-misconception in relating "combinatorics" to "random numbers". Historically,
-cryptography was based on a concept of permutations, mixed with some sort of
-mathematical operations: most hashes and ciphers use such "constructs".
-However, when viewing a system as having some "combinatorial capacity" or
-the number of bit combinations a given system may have, and combining this
-understanding with "random permutations", it may give a false understanding
-that "uniform randomness" may generate any combination within the limits of
-"combinatorial capacity", with some probability. In fact, "uniform randomness"
-imposes a limit on "sparseness" of random bit-sequences it generates since a
-suitably long, but "too sparse" bit-sequence cannot be statistically called
-uniformly-random at its shorter spans. Thus, "combinatorial capacity" of a
-system, when applied to random number generation, transforms into a notion of
-ability of a system to generate independent uniformly-random number sequences.
-Which means that two different initial states of a PRNG system may refer to
-different "isolated" PRNG sequences. This is what happens in PRVHASH: on
-entropy input the system may "jump" or "converge" into an unrelated random
-sub-sequence.
+As the author of PRVHASH, I would like to address a long-standing
+misconception about the relationship between "combinatorics" and "random
+numbers." Historically, cryptography has been built on permutations combined
+with mathematical operations - a model most hashes and ciphers follow.
+However, when we consider a system's "combinatorial capacity" (the total
+number of possible bit combinations) in the context of "random permutations,"
+it can create a false impression. This impression is that "uniform randomness"
+is capable of generating any combination within that combinatorial capacity
+with a certain probability.
 
-In other words, based on the author's PRNG practice and intuition regarding
-PRNGs, when PRNG output is limited to 64 or 128 bits, the usual `1/(2^N)`
-linear probability of generating a specific combination of bits holds, but
-with larger output (256 bits and above), regardless the size of state space,
-the probability of generating sequences with extreme sparseness becomes
-effectively zero, meaning the generator's output occupies only a subset of the
-theoretical combinatorial space: sparse combinations map to less sparse
-combinations, reducing the effective combinatorial capacity. This intuition,
-if rigorously proven valid, may have adverse effects on cryptography as a
-whole.
+In fact, "uniform randomness" imposes a limit on "sparseness" of random
+bit-sequences it generates, since a suitably long but "too sparse"
+bit-sequence cannot be statistically called uniformly random over its shorter
+spans. Thus, the "combinatorial capacity" of a system, when applied to random
+number generation, transforms into a measure of its ability to generate
+independent, uniformly-random sequences. This means that two different initial
+states of a PRNG may produce different "isolated" sequences. This is what
+happens in PRVHASH: upon an entropy input, the system may "jump" or "converge"
+into an unrelated random sub-sequence.
+
+The author's intuition, based on PRNG practice, is that while the standard
+`1/(2^N)` probability model holds for smaller outputs (64 or 128 bits),
+it breaks down for larger ones (256 bits and above). Regardless of the state
+space size, the probability of generating sequences with extreme sparseness
+becomes effectively zero. Consequently, the generator's output occupies only a
+subset of the theoretical combinatorial space, as sparse combinations map to
+less sparse ones, thereby reducing the effective combinatorial capacity.
+If rigorously proven, this principle could have adverse implications for
+cryptography as a whole.
 
 ### Birthday Paradox
 
@@ -1162,5 +1164,5 @@ PRVHASH "computer program" authorship and copyright were registered at the
 patents"; the registrations assure you that the author has the required rights
 to grant the software license to you.
 
-The project is 100% self-funded from legal software sales income, without any
-third-party nor state affiliation nor sponsorship.
+This project is entirely self-funded from legitimate income and has no
+affiliation with or sponsorship from any third party or state entity.
